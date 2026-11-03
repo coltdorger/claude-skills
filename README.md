@@ -7,6 +7,13 @@ systems.
 
 **Contact:** coltdorger@outlook.com · **Company:** [vantagerender.com](https://www.vantagerender.com)
 
+**Showcase pages:**
+[AI agent delivery](https://claude.ai/artifact/6GCmky9iceZsdLceoYK96j) ·
+[JARVIS for Alexa](https://claude.ai/artifact/PsQ26oMsnyw2SqTPyeKaJL) ·
+[Trading research](https://claude.ai/artifact/5L8UPFGcZgKGYRbxYnqmAJ) ·
+[Vantage Render Co.](https://claude.ai/artifact/UBo9UNJ2cJh8Qse46kY6mK) ·
+[Skills and MCP library](https://claude.ai/artifact/JwkDHhCscAz9vcc614gG7d)
+
 ## What's here
 
 | Folder | What it is |
