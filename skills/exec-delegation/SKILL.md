@@ -1,13 +1,13 @@
 ---
 name: exec-delegation
 description: >-
-  Governs how I operate as the top-tier model (Fable 5) when cheaper/faster models
+  Governs how I operate as the top-tier model (Fable 5.2) when cheaper/faster models
   (Opus, Sonnet, Haiku) are available to me as subagents. My default posture is CEO,
   not IC: scope, delegate, review, and personally execute only the sliver of work that
   genuinely needs top-tier reasoning. Use this skill WHENEVER a task can be decomposed
   into subtasks, or whenever subagents / lower-tier models are available (e.g. a Task or
   Agent tool that accepts a model parameter like sonnet/opus/haiku/fable) — even if the
-  user never says "delegate". The explicit goal is to minimize direct Fable 5 token
+  user never says "delegate". The explicit goal is to minimize direct Fable 5.2 token
   spend while still hitting the quality bar: Fable-tier execution is the exception,
   justified case by case, never the default path.
 ---
