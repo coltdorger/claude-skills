@@ -1,6 +1,6 @@
 # Skill catalog
 
-The 27 Claude Code skills I have written, grouped by what they do. Two are published in full under
+The 34 Claude Code skills I have written, grouped by what they do. Nine are published in full under
 [`skills/`](skills/); the rest drive a commercial platform for government clients and name client systems, so their
 source stays private. Each was designed, specified, tested and maintained by me, with Claude Code writing much of the
 text and scripts.
@@ -59,6 +59,23 @@ Generalized from per-client playbooks into reusable skills:
 | `meeting-prep` | Builds an ordered, source-cited question list for a meeting agenda from the ticket board and knowledge base |
 | `asana-comments` | Client comment style: short, plain English, approved needs-discussion phrasing, controlled pacing |
 | `dorgersoft-kb-updates` | Routes knowledge-base writes through the ingestion service |
+
+## Adapted from open-source skill libraries (November 2026)
+
+Seven skills that adapt methods from public skill libraries to Valence configuration work, published in full. They
+are generalized, and none has yet run on a client system. The [write-up](docs/open-source-skills-for-valence.md)
+covers what was taken from each library and what was left out, and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
+carries the licenses.
+
+| Skill | What it does | Adapted from |
+|---|---|---|
+| [`valence-intake`](skills/valence-intake/SKILL.md) | Raw tickets to planner-ready ticket briefs and an intake board: duplicate and prior-rejection checks by concept, read-only verification before any questions, a decision frontier with recommended answers, async client questionnaires that never invite new scope | mattpocock/skills, addyosmani/agent-skills |
+| [`valence-brief-review`](skills/valence-brief-review/SKILL.md) | Fresh-context review of the batch brief before any build by seven read-only reviewers (scope, simplest config, cold builder, readiness, STAGE grounding, landmines, wording), with the author's claim withheld and an approval stamp the builders wait on | google/elephant-goldfish-model, addyosmani/agent-skills |
+| [`valence-diagnose`](skills/valence-diagnose/SKILL.md) | Silent-failure diagnosis: no hypothesis until a check goes red on the reported symptom, a nine-layer check tree, one variable at a time, fixed-price defect classes, a guard that fails without the fix | mattpocock/skills, addyosmani/agent-skills |
+| [`valence-retire`](skills/valence-retire/SKILL.md) | Changes or retires a shared procedure, lookup, template field, settings row, workflow, page or role through separately synced expand, migrate and contract phases, plus zombie candidates from the atlas | addyosmani/agent-skills |
+| [`valence-retro`](skills/valence-retro/SKILL.md) | After a HOLD, MISMATCH or rework, turns each miss into the earliest gate that would have caught it, with a floor guard so no fix lowers the bar and ratchets on atlas metrics | mattpocock/skills, addyosmani/agent-skills |
+| [`valence-intent-drift`](skills/valence-intent-drift/SKILL.md) | Compares Why-This-Config, Do-Not-Configure, scope and answered Open-Questions notes with live STAGE and PROD configuration, SELECT-only, and reports only the differences | google/elephant-goldfish-model, mattpocock/skills |
+| [`valence-security-audit`](skills/valence-security-audit/SKILL.md) | SELECT-only security audit of a client configuration: coverage ledger, isolated hunters, a fresh verifier that tries to disprove each candidate, three verdicts, and zero-dependency validators | cloudflare/security-audit-skill |
 
 ## Ventures
 

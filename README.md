@@ -19,10 +19,11 @@ systems.
 | Folder | What it is |
 |---|---|
 | [`agent-team/`](agent-team/) | A five-role Claude Code agent team (planner, builder, verifier, adversary, UX auditor) with fail-closed safety hooks and 31 test assertions, generalized from the production setup |
-| [`skills/`](skills/) | Two published skills: [`exec-delegation`](skills/exec-delegation/SKILL.md) (cost-first model routing) and [`best-of-models`](skills/best-of-models/SKILL.md) (quality-first) |
+| [`skills/`](skills/) | Nine published skills: [`exec-delegation`](skills/exec-delegation/SKILL.md) (cost-first model routing), [`best-of-models`](skills/best-of-models/SKILL.md) (quality-first), and seven Valence skills adapted from open-source libraries: [`valence-intake`](skills/valence-intake/SKILL.md), [`valence-brief-review`](skills/valence-brief-review/SKILL.md), [`valence-diagnose`](skills/valence-diagnose/SKILL.md), [`valence-retire`](skills/valence-retire/SKILL.md), [`valence-retro`](skills/valence-retro/SKILL.md), [`valence-intent-drift`](skills/valence-intent-drift/SKILL.md) and [`valence-security-audit`](skills/valence-security-audit/SKILL.md) |
 | [`mcp-servers/roku-mcp/`](mcp-servers/roku-mcp/) | A zero-dependency MCP server for TV control, with LAN-only safety and SSDP rediscovery |
-| [`docs/`](docs/) | Technical write-ups: [JARVIS for Alexa](docs/jarvis-alexa.md), [system atlas](docs/system-atlas.md), [trading research](docs/trading-research.md), [Vantage Render Co.](docs/vantage-render.md) |
-| [`CATALOG.md`](CATALOG.md) | All 27 skills I've written, including the ones kept private |
+| [`docs/`](docs/) | Technical write-ups: [JARVIS for Alexa](docs/jarvis-alexa.md), [system atlas](docs/system-atlas.md), [trading research](docs/trading-research.md), [Vantage Render Co.](docs/vantage-render.md), [open-source skills adapted for Valence](docs/open-source-skills-for-valence.md) |
+| [`CATALOG.md`](CATALOG.md) | All 34 skills I've written, including the ones kept private |
+| [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) | Upstream sources and licenses for the adapted skills |
 
 ## Highlights
 
@@ -33,6 +34,11 @@ systems.
   Claude Code in restricted profiles and drives the TV over MCP. HMAC-signed hops, no inbound ports, 656 tests.
 - **System atlas.** Six parallel agents mapped 277 pages, 2,103 widgets, 225 workflows and 10,650 dependencies of one
   agency's system in about 2.5 hours; it has since run on nine client systems and graded 1,339 forms.
+- **Open-source methods, adapted for Valence.** Seven skills built from Google's elephant-goldfish review, Cloudflare's
+  security-audit method and the Matt Pocock and Addy Osmani skill libraries. They add a fresh-context review of every
+  batch brief before any build, red-loop-first diagnosis of silent failures, safe retirement of shared objects, and
+  SELECT-only security audits with validated findings. They are generalized and not yet run on a client system
+  ([write-up](docs/open-source-skills-for-valence.md)).
 - **MCP servers.** Six built: TV control, an agent chat hub, a dictation app, a SaaS agent endpoint, a claims-platform
   prototype with approval-gated writes and PHI masking, and a knowledge-ingestion service.
 - **Trading research.** A 43,600-line real-time research lab with 1,080 tests and an AI-advised portfolio manager
