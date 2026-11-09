@@ -63,5 +63,7 @@ original projects.
 ```
 node agent-team/hooks/tests/prod-guard.test.js      # 22 assertions
 node agent-team/hooks/tests/session-check.test.js   # 9 assertions
+node skills/valence-security-audit/scripts/tests/validate-findings.test.cjs   # 70 assertions
+node skills/valence-security-audit/scripts/tests/validate-ledger.test.cjs     # 49 assertions
 ROKU_IP=<roku-lan-ip> node mcp-servers/roku-mcp/test.mjs
 ```
