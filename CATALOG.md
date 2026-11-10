@@ -1,6 +1,6 @@
 # Skill catalog
 
-The 34 Claude Code skills I have written, grouped by what they do. Nine are published in full under
+The 38 Claude Code skills I have written, grouped by what they do. Thirteen are published in full under
 [`skills/`](skills/); the rest drive a commercial platform for government clients and name client systems, so their
 source stays private. Each was designed, specified, tested and maintained by me, with Claude Code writing much of the
 text and scripts.
@@ -62,8 +62,8 @@ Generalized from per-client playbooks into reusable skills:
 
 ## Adapted from open-source skill libraries (November 2026)
 
-Seven skills that adapt methods from public skill libraries to Valence configuration work, published in full. They
-are generalized, and none has yet run on a client system. The [write-up](docs/open-source-skills-for-valence.md)
+Eleven skills that adapt methods from public skill libraries to Valence configuration work, in two rounds, published
+in full. They are generalized, and none has yet run on a client system. The [write-up](docs/open-source-skills-for-valence.md)
 covers what was taken from each library and what was left out, and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
 carries the licenses.
 
@@ -76,6 +76,10 @@ carries the licenses.
 | [`valence-retro`](skills/valence-retro/SKILL.md) | After a HOLD, MISMATCH or rework, turns each miss into the earliest gate that would have caught it, with a floor guard so no fix lowers the bar and ratchets on atlas metrics | mattpocock/skills, addyosmani/agent-skills |
 | [`valence-intent-drift`](skills/valence-intent-drift/SKILL.md) | Compares Why-This-Config, Do-Not-Configure, scope and answered Open-Questions notes with live STAGE and PROD configuration, SELECT-only, and reports only the differences | google/elephant-goldfish-model, mattpocock/skills |
 | [`valence-security-audit`](skills/valence-security-audit/SKILL.md) | SELECT-only security audit of a client configuration: coverage ledger, isolated hunters, a fresh verifier that tries to disprove each candidate, three verdicts, and zero-dependency validators | cloudflare/security-audit-skill |
+| [`valence-form-lint`](skills/valence-form-lint/SKILL.md) | 24 deterministic checks over a form's UX evidence pack before the auditor scores it (unlabelled fields, empty lookups, read-only required fields, theme drift, keyboard coverage, missing state captures), merged so the script never anchors the auditor | pbakaus/impeccable, nexu-io/open-design |
+| [`valence-form-parity`](skills/valence-form-parity/SKILL.md) | A fresh judge compares a form built to replace a paper application or legacy screen with the client's blank source form, scoring fields, wording, controls, layout and details until they match, stall or hit five rounds | achimala/dream-loop |
+| [`valence-deliverable-check`](skills/valence-deliverable-check/SKILL.md) | Pre-handoff gate for walkthrough decks and Word guides: real-data residue, personal-data patterns, placeholders, layout overflow and missing alt text, reported by position, never by value | nexu-io/open-design |
+| [`valence-skill-test`](skills/valence-skill-test/SKILL.md) | Proves a skill changes behaviour: pressure scenarios, quizzes and planted-flaw case packs run on read-only subagents with and without the skill, on made-up fixtures only | obra/superpowers |
 
 ## Ventures
 
