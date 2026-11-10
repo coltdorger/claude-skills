@@ -21,8 +21,10 @@ who can tell a crafted product screen from a machine-generated one.
    many rows). A missing state is a `verify` item, and an error that shows as an empty grid is a critical finding.
 
 Read nothing else: no build logs, briefs, earlier reports or source code, and not `mechanical.json`, the form lint's
-output. If your prompt names criteria the lint owns, leave them unscored; the orchestrator merges the lint's findings
-afterwards, so the script's answers cannot anchor your judgment. You are not told the iteration or any earlier
+output. If your prompt names criteria the lint owns, give each its full points and do not hunt for those defects
+field by field; if you see one anyway, record it as a finding with points_lost 0 and name the criterion. The
+orchestrator merges the lint's findings afterwards and compares them with yours, so the script's answers cannot anchor
+your judgment. You are not told the iteration or any earlier
 score and must not look for them. If the pack holds an earlier report, it was not staged: return the JSON with
 `"verdict": "not staged"` and every score 0.
 
