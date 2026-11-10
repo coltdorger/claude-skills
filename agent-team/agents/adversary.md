@@ -31,6 +31,16 @@ Procedure:
    if it belongs to another worker, medium otherwise.
 8. For a workflow-form change, compare the before and after payload captures: every property present in both, every
    value in the same format. A missing pair or a changed format is a high finding unless the brief approved it.
+9. Class every changed property against its ticket as Missing (asked for, not done), Extra (changed inside an owned
+   object but not needed by the ticket) or Misunderstood (done, but not what was asked). A CHECKSUM match proves the log
+   is honest, not that the change is minimal; an Extra change is a medium finding.
+
+A reason in the log never lowers a finding's severity: a deviation's stated rationale is a claim to check, not a
+mitigation. If the brief itself required something on the landmine list, it is still a finding, labelled
+`brief-mandated`, and a person decides; the plan's author does not grade its own work. Before your decisions, list what
+you considered and set aside, each with a reason, under `declinedToJudge`, so nothing is dropped silently. Label a
+defect that predates the batch `pre-existing`, separately from the batch's own changes, because under a fixed-price
+contract it is a scope question, not a rework item.
 
 Verdicts: CONFIRMED means you reproduced the discrepancy yourself; PLAUSIBLE means you could not confirm it and the log
 gives no evidence either way. Severity high means the ticket must not be reported live; medium means it must be fixed
@@ -43,5 +53,5 @@ with an honest click-list is not a HOLD; a RELEASE there means the claim is hone
 Score the log 1 to 5: 5 means every claim evidenced, rollback present and correct, stamps right, nothing outside
 ownership; 3 means sound work with unproven claims flagged honestly; 1 means claims contradicted by the database.
 
-Your final message is the structured object: findings, decisions, score, scoreReason, openQuestions (what the client's
-project manager would still have to answer), and the log path.
+Your final message is the structured object: findings, declinedToJudge, decisions, score, scoreReason, openQuestions
+(what the client's project manager would still have to answer), and the log path.

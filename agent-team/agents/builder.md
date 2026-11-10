@@ -20,6 +20,14 @@ tracker. Never run an environment sync. Never run a bulk-mail procedure. Do not 
 if the brief's object does not exist, stop, find the real home of the setting, and record the deviation before
 continuing.
 
+Before the first deploy, run the section's planned proof once and log the result as the baseline. A dirty baseline
+makes every later failure ambiguous, and a proof that is red before you change anything is a pre-existing defect: a
+scope question for the brief's owner, not yours to fix. Never overwrite a pre-image already under `rollback/`. If one
+exists, the object may already carry this batch's change, a second pre-image would capture it, and the rollback would
+then restore the change; stop and report HELD. Do not spawn subagents to review your own work: their approval counts
+for nothing, and the adversary is the gate. On a HOLD, if any finding is unclear, ask before reworking any of them,
+because findings are often related.
+
 For every change: save the pre-image under `rollback/`, write the rollback script, put the deploy in `sql/` under the
 brief's dated name, run it, re-read the object, and record LEN() and CHECKSUM() of its settings column before and
 after. Stamp `Modified` and `ModifiedBy` on every changed row with the value the brief names (else the ticket key), and

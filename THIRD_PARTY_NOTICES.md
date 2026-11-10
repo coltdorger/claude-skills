@@ -1,11 +1,12 @@
 # Third-party notices
 
-The seven `valence-*` skills added in November 2026 adapt methods from four open-source skill libraries. Each skill
-was rewritten for Valence configuration work: the upstream text was restated in Valence terms, short phrases are
-quoted where the wording mattered, and everything specific to codebases, git, web frameworks or CI was dropped. No
-upstream code is included; the validators in `skills/valence-security-audit/scripts/` are an independent
-implementation. The upstream copyright and license notices are reproduced below, as their licenses require for
-substantial portions.
+The `valence-*` skills, and some rules added to the agent team, adapt methods from open-source skill libraries. The work
+was done in two rounds in November 2026. Each piece was rewritten for Valence configuration work: the upstream text was
+restated in Valence terms, short phrases are quoted where the wording mattered, and everything specific to codebases,
+git, web frameworks or CI was dropped. No upstream code is included. The scripts in
+`skills/valence-security-audit/scripts/`, `skills/valence-form-lint/scripts/` and
+`skills/valence-deliverable-check/scripts/` are independent implementations. The upstream copyright and license notices
+are reproduced below, as their licenses require for substantial portions.
 
 | Adapted skill | Upstream source (commit read) | License |
 |---|---|---|
@@ -16,11 +17,21 @@ substantial portions.
 | `valence-intake` | mattpocock/skills `4ae2317` (triage, grilling, to-questionnaire); addyosmani/agent-skills `301b02b` (interview-me) | MIT; MIT |
 | `valence-retro` | mattpocock/skills `4ae2317` (retro); addyosmani/agent-skills `301b02b` (constraint-driven-development) | MIT; MIT |
 | `valence-security-audit` | cloudflare/security-audit-skill `c1c8a8c` (security-audit) | MIT |
+| `valence-form-lint` | pbakaus/impeccable `ec229b4` (critique, audit, clarify, harden, the deterministic rule registry); nexu-io/open-design `07a86b1` (craft/state-coverage, form-validation, accessibility-baseline, themselves adapted from referodesign/refero_skill) | Apache-2.0; Apache-2.0 (MIT upstream) |
+| `valence-deliverable-check` | nexu-io/open-design `07a86b1` (skills/pptx-html-fidelity-audit, plugins/community/clone-audit, plugins/community/humanize-ppt) | Apache-2.0; MIT |
+| `valence-form-parity` | achimala/dream-loop `9bddb90` (the judge loop, rubric and exit criteria) | MIT |
+| `valence-skill-test` | obra/superpowers `22f0b46` (writing-skills and its testing references) | MIT |
+| Rules added to `valence-diagnose` (browser save checks, host allowlist, credentials, no retried submit) | browser-use/browser-use `070be98` (qa skill, system prompt, domain guard); obra/superpowers `22f0b46` (condition-based waiting) | MIT; MIT |
+| Rules added to `valence-intent-drift` and `valence-retire` (provenance tags on anchors and references) | Graphify-Labs/graphify `5eedffa` (EXTRACTED, INFERRED and AMBIGUOUS edges) | Apache-2.0 |
+| Rules added to the adversary, builder and UX auditor agents, the agent-team README, `valence-brief-review` and `valence-retro` | obra/superpowers `22f0b46` (subagent-driven-development reviewer prompts, verification-before-completion); nexu-io/open-design `07a86b1` (craft/state-coverage) | MIT; Apache-2.0 |
 
-Files adapted from google/elephant-goldfish-model are modified works under the Apache License 2.0: they were changed
-by Colt Dorger in November 2026 to target Valence configuration briefs and intent notes instead of software design
-documents. The upstream project has no NOTICE file. Its README states it is not an officially supported Google
-product, and nothing here implies endorsement by Google, Cloudflare, Matt Pocock, Addy Osmani or anyone else.
+Files adapted from google/elephant-goldfish-model, pbakaus/impeccable, nexu-io/open-design and Graphify-Labs/graphify
+are modified works under the Apache License 2.0. Colt Dorger changed them in November 2026 to target Valence
+configuration briefs, intent notes, form evidence packs and client deliverables, instead of software design documents,
+web pages and codebases. The elephant-goldfish-model and open-design projects have no NOTICE file. impeccable's NOTICE
+covers only its iOS and Android reference files, which were not used. graphify's NOTICE is reproduced below. Nothing
+here implies endorsement by Google, Cloudflare, Matt Pocock, Addy Osmani, Paul Bakaus, Open Design, Graphify Labs, Anshu
+Chimala, Jesse Vincent, Browser Use or anyone else.
 
 ## mattpocock/skills
 
@@ -307,4 +318,129 @@ Copyright 2026 Google LLC. Licensed under the Apache License, Version 2.0:
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+```
+
+## pbakaus/impeccable, nexu-io/open-design and Graphify-Labs/graphify
+
+All three are licensed under the Apache License, Version 2.0, whose full text is reproduced above under google/elephant-goldfish-model.
+
+- impeccable: Copyright 2025 Paul Bakaus.
+- open-design: Copyright 2026 Open Design contributors. Its `craft/` files state they are adapted from [referodesign/refero_skill](https://github.com/referodesign/refero_skill) (MIT License, © Refero Design).
+- graphify: its NOTICE file reads:
+
+```
+Graphify
+Copyright 2026 Safi Shamsi and the Graphify contributors.
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Portions of this software were contributed under the MIT License prior to the
+relicensing and remain available under those terms. The original MIT license
+text is retained in LICENSE-MIT.
+```
+
+## achimala/dream-loop
+
+```
+MIT License
+
+Copyright (c) 2026 Anshu Chimala
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## obra/superpowers
+
+```
+MIT License
+
+Copyright (c) 2025 Jesse Vincent
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## browser-use/browser-use
+
+```
+MIT License
+
+Copyright (c) 2024 Gregor Zunic
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## humanize-ppt (in nexu-io/open-design, plugins/community/humanize-ppt)
+
+Its LICENSE file is truncated upstream, so the standard MIT text is given with its copyright line.
+
+```
+MIT License
+
+Copyright (c) 2026 LearnPrompt
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```

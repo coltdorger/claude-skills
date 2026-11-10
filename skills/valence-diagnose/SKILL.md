@@ -90,6 +90,12 @@ Try the loops in this order and take the first that reaches the symptom:
   launch the workflow through `valence-playwright` if installed (otherwise the engineer clicks while you query),
   SELECT again, and assert the change or the new instance row landed. First confirm that the workflow has no mail
   step or that the STAGE outbound-mail gate holds mail; if you can confirm neither, use the click-list instead.
+  Before the first navigation, also record what a screenshot cannot show: page errors, console errors, responses of
+  400 or more, and failed requests, by method, path and status only (bodies hold personal data). "Never saves" then
+  splits three ways: no request sent (form or page layer), a 4xx or 5xx (procedure layer), or a 2xx and no row (data
+  or workflow layer). Wait for a condition, not a delay: poll the row count or the saved value with a timeout whose
+  error names the condition. A save or submit that times out is never clicked again: re-read it with a SELECT and
+  report it UNKNOWN, because a retry can create a second record or send a second notice.
 - **(c) Replay a captured payload** (STAGE only, same mail check). Replay the failing submission through the form's
   own save path and compare it with one that saves, property by property: a property missing on one side or a value
   in a different format is the usual cause, and the comparison alone is an observation loop when nothing can replay.
@@ -111,6 +117,12 @@ Try the loops in this order and take the first that reaches the symptom:
 - **(g) A human-in-the-loop click-list**, last resort, for a portal page only a signed-in external user can see or a
   step a permission check refuses to an agent: numbered steps, each naming what to capture, returned as KEY=VALUE
   lines you can read. See [references/click-list-template.md](references/click-list-template.md).
+
+**Any browser step** in (b), (c) or a guard runs behind a host allowlist: every request to a host other than the
+client's STAGE portal and its sign-in host is aborted, subresources included, and the check refuses to start if the
+guard is not installed or a listed host is a PROD host. A test account's password never reaches the model: a person
+signs in once, the saved session stays in the client folder outside git and is deleted after the batch, and traces
+and videos stay off during sign-in, because they record what is typed.
 
 Once a loop exists, tighten it to the one widget, record or step. For an intermittent failure, raise the reproduction
 rate first: run the check across a sample of records or times and diff the failures against the passes; "sometimes"

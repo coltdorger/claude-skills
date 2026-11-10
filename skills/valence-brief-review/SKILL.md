@@ -229,6 +229,8 @@ shows up in what was built.
 - Running a reviewer in your own context, or reusing one across rounds.
 - A prompt that asks "does this look right" instead of "find what is wrong".
 - The claim, or a summary of the planning discussion, in any reviewer's prompt.
+- A reviewer prompt that pre-judges, through phrases such as "do not flag", "don't treat X as a defect", "at most a
+  Nit" or "the brief chose". Each tells the goldfish what not to find.
 - A not-run reviewer counted as clean, or a round called clean while `ground` could not reach STAGE.
 - New reviewers on an unchanged brief to get a better answer: that is stalling, not reviewing.
 - The brief growing a paragraph per finding. Close each gap in the fewest words a builder needs.

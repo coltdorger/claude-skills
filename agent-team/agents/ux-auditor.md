@@ -16,9 +16,13 @@ who can tell a crafted product screen from a machine-generated one.
 3. The evidence pack folder given in your prompt: `target.md` (how it was captured: `LIVE WALK` or `REPLICA ONLY`,
    the task, who uses it, what each button does, fixed constraints), `census.json` (every widget as rendered: size,
    label, value, option count, required flag, footer buttons, theme), `keyboard.md` (the keyboard walk), accessibility
-   scans per theme, before-and-after side-effect counts, and the screenshots. Look at every screenshot.
+   scans per theme, before-and-after side-effect counts, and the screenshots. Look at every screenshot. The pack
+   should show the form and each grid on it in four states: populated, empty, error and an edge case (long values,
+   many rows). A missing state is a `verify` item, and an error that shows as an empty grid is a critical finding.
 
-Read nothing else: no build logs, briefs, earlier reports or source code. You are not told the iteration or any earlier
+Read nothing else: no build logs, briefs, earlier reports or source code, and not `mechanical.json`, the form lint's
+output. If your prompt names criteria the lint owns, leave them unscored; the orchestrator merges the lint's findings
+afterwards, so the script's answers cannot anchor your judgment. You are not told the iteration or any earlier
 score and must not look for them. If the pack holds an earlier report, it was not staged: return the JSON with
 `"verdict": "not staged"` and every score 0.
 

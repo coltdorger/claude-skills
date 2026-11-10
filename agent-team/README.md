@@ -54,6 +54,14 @@ explains where each came from.
   hypothesis until a check goes red on the reported symptom.
 - [`valence-retro`](../skills/valence-retro/SKILL.md) runs after any HOLD or MISMATCH and turns each miss into a hook
   pattern, verifier column, landmine line or reviewer standard.
+- [`valence-form-lint`](../skills/valence-form-lint/SKILL.md) runs deterministic checks over a form's evidence pack
+  before the UX auditor scores it, and [`valence-form-parity`](../skills/valence-form-parity/SKILL.md) has a fresh judge
+  compare a form built to replace a paper or legacy form against that source.
+
+**Batch ledger.** The orchestrator keeps `build/<date>_<batch>-LEDGER.md`: one line per dispatch, with its status,
+the verdict and any rework. After a context compaction or a restart, it resumes at the first section with no
+completion line. Re-dispatching finished work is worse than wasted tokens here: a second builder run would take a
+second pre-image of an object it already changed. The builder refuses to overwrite a pre-image for the same reason.
 
 ## Safety hooks
 

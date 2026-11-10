@@ -84,7 +84,9 @@ wired in or is silently broken: the session-start line said "prod guard: NOT wir
 pattern but nobody ran lint this batch; a `valence-playwright` check exists for the page but the brief asked for a
 click-list. A check that exists and did not run is the finding, not a reason to write another. Prefer the gate that
 fires earliest on the cheapest evidence: a hook that denies the command beats a verifier column that reads the result,
-which beats a lint rule at the next atlas refresh.
+which beats a lint rule at the next atlas refresh. A cheap example: a word check on the builder log's status rows and
+draft comments for hedges ("should", "probably", "seems to", "now works"), because a hedge in a status is a claim with
+no proof behind it.
 
 **Judgment.** Give the standard to the reviewer, not the builder. The builder carries the most context pressure
 (exploring, deploying, proving, writing the log) and drops rules under load; the adversary and the brief reviewer read

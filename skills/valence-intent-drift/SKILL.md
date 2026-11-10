@@ -90,6 +90,16 @@ An assertion that names no object is **unanchored**. Record it with a proposed a
 found with the atlas value finder or impact if installed, else a search) and do not check it: a guessed anchor yields
 confident false findings, and once a person writes the anchor into the note, every later run checks it cheaply.
 
+Tag every anchor with its provenance, and carry the tag into the report:
+
+- **EXTRACTED**: the note names the object by its stable key, word for word.
+- **INFERRED**: a bare name that matches exactly one object.
+- **AMBIGUOUS**: a name that matches more than one object. This makes no anchor at all; list the candidates for a
+  person and stop, rather than guess. An INFERRED anchor becomes EXTRACTED only when a person writes the key into the
+  note.
+
+A finding that rests on an INFERRED anchor says so, because a reader acting on it is trusting a match, not the note.
+
 Where a note supersedes an older claim, check only the newest. Where two notes contradict each other, record the
 contradiction for a person instead of choosing one. Skip in-scope work not yet delivered (no LIVE log for it): it is
 pending, not drift. An out-of-scope decision asserts nothing about configuration unless a Do-Not-Configure note backs

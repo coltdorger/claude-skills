@@ -120,6 +120,14 @@ Why each rule holds:
 - One consumer per Migrate unit: a failed proof then points at one consumer, and its rollback touches nothing else.
 - Re-run the dependency search on the day of Contract, on both environments. New consumers appear during a long
   migration, and a client administrator can add one in production that STAGE never had.
+- State what "zero usage" rests on. Split every hit by provenance:
+  - **extracted**: read from a structured column, such as a settings row naming the procedure, a workflow activity
+    naming the id, or a foreign key;
+  - **inferred**: parsed from text, such as a FROM or JOIN in a definition, or a code found in a procedure body;
+  - **ambiguous**: dynamic SQL, string concatenation, or a substring that also matches `<code>_OLD`.
+
+  Contract proceeds only when all three are empty. An ambiguous hit is resolved by a person, never assumed dead,
+  because the cheapest search misses exactly the consumer that breaks.
 - For a workflow, check every parent that embeds it (the atlas embedded-workflow drift operation if installed):
   repointing a launcher does not change the copy a parent runs. Back the workflow up with `workflow-push` before
   Contract.
