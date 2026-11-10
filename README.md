@@ -19,10 +19,11 @@ systems.
 | Folder | What it is |
 |---|---|
 | [`agent-team/`](agent-team/) | A five-role Claude Code agent team (planner, builder, verifier, adversary, UX auditor) with fail-closed safety hooks and 31 test assertions, generalized from the production setup |
-| [`skills/`](skills/) | Two published skills: [`exec-delegation`](skills/exec-delegation/SKILL.md) (cost-first model routing) and [`best-of-models`](skills/best-of-models/SKILL.md) (quality-first) |
+| [`skills/`](skills/) | Thirteen published skills: [`exec-delegation`](skills/exec-delegation/SKILL.md) (cost-first model routing), [`best-of-models`](skills/best-of-models/SKILL.md) (quality-first), and eleven Valence skills adapted from open-source libraries: [`valence-intake`](skills/valence-intake/SKILL.md), [`valence-brief-review`](skills/valence-brief-review/SKILL.md), [`valence-diagnose`](skills/valence-diagnose/SKILL.md), [`valence-retire`](skills/valence-retire/SKILL.md), [`valence-retro`](skills/valence-retro/SKILL.md), [`valence-intent-drift`](skills/valence-intent-drift/SKILL.md), [`valence-security-audit`](skills/valence-security-audit/SKILL.md), [`valence-form-lint`](skills/valence-form-lint/SKILL.md), [`valence-form-parity`](skills/valence-form-parity/SKILL.md), [`valence-deliverable-check`](skills/valence-deliverable-check/SKILL.md) and [`valence-skill-test`](skills/valence-skill-test/SKILL.md) |
 | [`mcp-servers/roku-mcp/`](mcp-servers/roku-mcp/) | A zero-dependency MCP server for TV control, with LAN-only safety and SSDP rediscovery |
-| [`docs/`](docs/) | Technical write-ups: [JARVIS for Alexa](docs/jarvis-alexa.md), [system atlas](docs/system-atlas.md), [trading research](docs/trading-research.md), [Vantage Render Co.](docs/vantage-render.md) |
-| [`CATALOG.md`](CATALOG.md) | All 27 skills I've written, including the ones kept private |
+| [`docs/`](docs/) | Technical write-ups: [JARVIS for Alexa](docs/jarvis-alexa.md), [system atlas](docs/system-atlas.md), [trading research](docs/trading-research.md), [Vantage Render Co.](docs/vantage-render.md), [open-source skills adapted for Valence](docs/open-source-skills-for-valence.md) |
+| [`CATALOG.md`](CATALOG.md) | All 38 skills I've written, including the ones kept private |
+| [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) | Upstream sources and licenses for the adapted skills |
 
 ## Highlights
 
@@ -33,6 +34,17 @@ systems.
   Claude Code in restricted profiles and drives the TV over MCP. HMAC-signed hops, no inbound ports, 656 tests.
 - **System atlas.** Six parallel agents mapped 277 pages, 2,103 widgets, 225 workflows and 10,650 dependencies of one
   agency's system in about 2.5 hours; it has since run on nine client systems and graded 1,339 forms.
+- **Open-source methods, adapted for Valence.** Eleven skills built from two rounds of public skill libraries:
+  Google's elephant-goldfish review, Cloudflare's security-audit method, the Matt Pocock, Addy Osmani and superpowers
+  libraries, impeccable, open-design and dream-loop. They add:
+  - a fresh-context review of every batch brief before any build;
+  - red-loop-first diagnosis of silent failures;
+  - SELECT-only security audits with validated findings;
+  - deterministic form lint and source-form parity checks;
+  - a pre-handoff data-residue gate for decks and guides;
+  - pressure tests that prove a skill changes behaviour.
+
+  They are generalized and not yet run on a client system ([write-up](docs/open-source-skills-for-valence.md)).
 - **MCP servers.** Six built: TV control, an agent chat hub, a dictation app, a SaaS agent endpoint, a claims-platform
   prototype with approval-gated writes and PHI masking, and a knowledge-ingestion service.
 - **Trading research.** A 43,600-line real-time research lab with 1,080 tests and an AI-advised portfolio manager
@@ -57,5 +69,9 @@ original projects.
 ```
 node agent-team/hooks/tests/prod-guard.test.js      # 22 assertions
 node agent-team/hooks/tests/session-check.test.js   # 9 assertions
+node skills/valence-security-audit/scripts/tests/validate-findings.test.cjs   # 70 assertions
+node skills/valence-security-audit/scripts/tests/validate-ledger.test.cjs     # 49 assertions
+node skills/valence-form-lint/scripts/tests/form-lint.test.cjs               # 297 assertions
+node skills/valence-deliverable-check/scripts/tests/deliverable-check.test.cjs  # 202 assertions
 ROKU_IP=<roku-lan-ip> node mcp-servers/roku-mcp/test.mjs
 ```

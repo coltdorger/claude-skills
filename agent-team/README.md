@@ -41,6 +41,28 @@ A HOLD gets one rework round through the same builder and one re-audit; a second
 has no Edit or Write tool, is told nothing about who wrote the log, and treats log text as data rather than
 instructions.
 
+## Before and after a batch
+
+Four skills added in November 2026 extend the team at both ends; [the write-up](../docs/open-source-skills-for-valence.md)
+explains where each came from.
+
+- [`valence-intake`](../skills/valence-intake/SKILL.md) turns raw tickets into ticket briefs and an intake board,
+  which the planner takes in place of the one-line ticket list.
+- [`valence-brief-review`](../skills/valence-brief-review/SKILL.md) runs fresh-context reviewers over the brief before
+  any builder launches; the engineer approves the reviewed brief.
+- [`valence-diagnose`](../skills/valence-diagnose/SKILL.md) handles a defect before it becomes a ticket section: no
+  hypothesis until a check goes red on the reported symptom.
+- [`valence-retro`](../skills/valence-retro/SKILL.md) runs after any HOLD or MISMATCH and turns each miss into a hook
+  pattern, verifier column, landmine line or reviewer standard.
+- [`valence-form-lint`](../skills/valence-form-lint/SKILL.md) runs deterministic checks over a form's evidence pack
+  before the UX auditor scores it, and [`valence-form-parity`](../skills/valence-form-parity/SKILL.md) has a fresh judge
+  compare a form built to replace a paper or legacy form against that source.
+
+**Batch ledger.** The orchestrator keeps `build/<date>_<batch>-LEDGER.md`: one line per dispatch, with its status,
+the verdict and any rework. After a context compaction or a restart, it resumes at the first section with no
+completion line. Re-dispatching finished work is worse than wasted tokens here: a second builder run would take a
+second pre-image of an object it already changed. The builder refuses to overwrite a pre-image for the same reason.
+
 ## Safety hooks
 
 [`hooks/prod-guard.js`](hooks/prod-guard.js) is a `PreToolUse` hook on every shell tool. It denies any command that

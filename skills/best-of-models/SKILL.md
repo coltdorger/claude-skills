@@ -5,9 +5,9 @@ description: >-
   orchestration and judgment, and Sonnet-level coding on the same task by routing each
   piece of work to the model that is best at it through subagents (Agent tool `model`:
   fable / opus / sonnet). The session model (normally Opus 5.5) stays the orchestrator
-  and default worker; Fable 5.1 is brought in for hard reasoning, planning under
-  ambiguity, stuck problems and high-stakes review; Sonnet (Sonnet 5, sometimes called
-  "Sonnet 5.5") does well-specified coding. Use this skill whenever the user asks for
+  and default worker; Fable 5.2 is brought in for hard reasoning, planning under
+  ambiguity, stuck problems and high-stakes review; Sonnet 5.5 does well-specified
+  coding. Use this skill whenever the user asks for
   "the best model for each part", "bring in Fable", "use Sonnet for the code",
   "combine the models", "max quality", or whenever a non-trivial task mixes hard
   judgment with a real amount of implementation (multi-file builds, migrations,
@@ -18,9 +18,9 @@ description: >-
 
 # Best of models
 
-No single model is best at everything. Fable 5.1 reasons deepest, Opus 5.5 is the
+No single model is best at everything. Fable 5.2 reasons deepest, Opus 5.5 is the
 strongest all-round operator (holds context, drives tools, integrates, writes well),
-and Sonnet 5 writes a lot of correct code quickly from a clear spec. A skill can't give
+and Sonnet 5.5 writes a lot of correct code quickly from a clear spec. A skill can't give
 one model another's abilities, but it can make sure every piece of work lands on the
 model that does it best, and that the pieces are checked before they're combined. That
 is what this skill does.
@@ -147,6 +147,9 @@ only if the user cares; the result is what matters.
   background when you have other useful work meanwhile.
 - The multi-agent Workflow tool needs the user's explicit opt-in. This skill uses plain
   Agent calls unless the user has asked for a workflow.
-- Model naming: the Agent tool's `sonnet` maps to the current Sonnet (Sonnet 5 as of
-  this writing, which some people call "Sonnet 5.5"); `fable` is Fable 5.1 and `opus`
-  is Opus 5.5.
+- Model naming: the Agent tool's `fable`, `opus` and `sonnet` select each line's model
+  in your Claude Code version. The current lineup (November 2026) is Fable 5.2, Opus 5.5
+  and Sonnet 5.5; after an upgrade, check `/model` to see what the aliases now select.
+- Data retention: Fable 5.2 needs 30-day data retention and is unavailable under zero
+  data retention unless Anthropic authorizes it. On an organization with zero
+  retention, give the deep-reasoner role to Opus at high effort instead.
